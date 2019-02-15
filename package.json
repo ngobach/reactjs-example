@@ -1,0 +1,23 @@
+{
+  "name": "bachnx-react",
+  "version": "0.0.0",
+  "description": "Sample project with React",
+  "main": "dist/index.js",
+  "dependencies": {
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "pug": "^2.0.3",
+    "sass": "^1.17.0"
+  },
+  "scripts": {
+    "start": "parcel serve src/index.pug",
+    "build": "parcel build src/index.pug",
+    "clean": "rm -rf .cache dist"
+  },
+  "keywords": [],
+  "author": "BachNX <thanbaiks@gmail.com>",
+  "license": "MIT"
+}

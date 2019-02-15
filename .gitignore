@@ -1,0 +1,9 @@
+# Gitignore file for bahcnx-react app
+
+
+# NodeJS stuffs
+node_modules/
+
+# Parcel Bundler
+.cache/
+dist/

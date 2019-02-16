@@ -3,6 +3,7 @@
   height: 100%;
   background-image: linear-gradient(160deg, #0093E9EE 0%, #80D0C7EE 100%), url('https://images.unsplash.com/photo-1518081461904-9d8f136351c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;

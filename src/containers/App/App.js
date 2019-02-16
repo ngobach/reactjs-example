@@ -2,10 +2,10 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import TextPage from '../../components/TextPage';
 import Home from '../../pages/Home';
+import Register from '../../pages/Register';
 import NotFound from '../../pages/NotFound';
 
 const Login = () => <TextPage>Login</TextPage>;
-const Register = () => <TextPage>Register</TextPage>;
 const UserProfile = () => <TextPage>User Profile</TextPage>;
 
 class App extends React.Component {

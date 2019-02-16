@@ -3,13 +3,21 @@
   "version": "0.0.0",
   "description": "Sample project with React",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thanbaiks/reactjs-example"
+  },
   "dependencies": {
     "evergreen-ui": "^4.12.0",
+    "formik": "^1.5.0",
+    "lowdb": "^1.0.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "ui-box": "^1.4.0",
+    "yup": "^0.26.10"
   },
   "devDependencies": {
     "parcel-bundler": "^1.11.0",

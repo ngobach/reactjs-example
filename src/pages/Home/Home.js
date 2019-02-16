@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Heading, Button } from 'evergreen-ui';
 import './Home.scss';
 import Beauty from '../../containers/Beauty';
@@ -21,8 +22,11 @@ class Home extends React.PureComponent {
   render() {
     return (
       <Beauty>
+        <Helmet>
+          <title>Homepage</title>
+        </Helmet>
         <div className="home">
-          <Heading size={900}>Example React Project</Heading>
+          <Heading size={900} color="#FFFFFF">Example React Project</Heading>
           <Heading marginTop="1em" marginBottom="1em">What should we do next?</Heading>
           <Button marginRight={12} appearance="primary" intent="success" onClick={this.doRegister}>Register</Button>
           <Button appearance="primary" onClick={this.doLogin}>Login</Button>

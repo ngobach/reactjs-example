@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "parcel serve src/index.pug",
-    "build": "parcel build src/index.pug",
+    "build": "parcel build --no-source-maps src/index.pug",
     "clean": "rm -rf .cache dist"
   },
   "keywords": [],

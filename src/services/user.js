@@ -15,7 +15,6 @@ const users = {
   },
 
   async create(user) {
-    await utils.delay(500);
     if (this.findByEmail(user.email) || this.findByUsername(user.username)) {
       throw new Error('Email or username is already existing');
     }

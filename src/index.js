@@ -4,12 +4,18 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hello from './pages/Hello';
+import { BrowserRouter } from 'react-router-dom';
+import App from './containers/App';
 
 const mountPoint = document.getElementById('main');
 
 if (mountPoint) {
-  ReactDOM.render(<Hello />, mountPoint);
+  ReactDOM.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    mountPoint,
+  );
 } else {
   console.error('Mount point not found!');
 }

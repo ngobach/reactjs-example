@@ -7,27 +7,36 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Beauty from '../../containers/Beauty';
 import './Register.scss';
+import authService from '../../services/authentication';
 
 const validateUsername = function validateEmail(value) {
-  return yup.string().min(6).isValidSync(value) ? '' : 'Username must be from 6 characters';
+  return yup.string().min(6).isValidSync(value) ? '' : 'Username must be at least 6 characters';
 }
 
 const validatePassword = function validateEmail(value) {
-  return yup.string().min(6).isValidSync(value) ? '' : 'Password must be from 6 characters';
+  return yup.string().min(6).isValidSync(value) ? '' : 'Password must be at least 6 characters';
 }
 
 const validateEmail = function validateEmail(value) {
-  return yup.string().min(1).email().isValidSync(value) ? '' : `${value} is not an email address`;
+  return yup.string().min(1).email().isValidSync(value) ? '' : `${value} is not a valid email address`;
 }
 
 class Register extends React.PureComponent {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.state = { error: false, success: false };
   }
 
-  onSubmit(values, formik) {
-    console.log(values);
+  async onSubmit(values, formik) {
+    try {
+      this.setState({ error: false, success: false });
+      await authService.register(values);
+      this.setState({ success: true });
+    } catch (error) {
+      console.error(error);
+      this.setState({ error: error.message });
+    }
     formik.setSubmitting(false);
   }
 
@@ -45,9 +54,9 @@ class Register extends React.PureComponent {
               textAlign="left"
               background="tint1">
             <Formik
-                initialValues={{ username: '', email: '', password: '' }}
+                initialValues={{ username: 'abcdef', email: 'abcdef@gmail.co', password: '123213' }}
                 onSubmit={this.onSubmit}>
-              {(props) => (
+              {({ isSubmitting }) => (
                 <Form>
                   <ErrorMessage name="username" render={error => (
                     <Alert intent="warning" title={error}></Alert>
@@ -67,8 +76,14 @@ class Register extends React.PureComponent {
                   <Field name="password" validate={validatePassword} render={({ field }) => (
                     <TextInputField {...field} label="Password" type="password"/>
                   )}/>
+                  {this.state.success && (
+                    <Alert intent="success" title="Your account has been created" marginBottom={16}/>
+                  )}
+                  {this.state.error && (
+                    <Alert intent="danger" title={this.state.error} marginBottom={16}/>
+                  )}
                   <Box textAlign="center">
-                    <Button appearance="primary" type="submit" isLoading={props.isSubmitting}>Register</Button>
+                    <Button appearance="primary" type="submit" isLoading={isSubmitting}>Register</Button>
                   </Box>
                 </Form>
               )}

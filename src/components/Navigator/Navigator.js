@@ -20,7 +20,7 @@ class Navigator extends React.Component {
     return (
       <div className="navigator">
         <div className="logo">
-          <Heading size={700} color="#FFFFFF" cursor="pointer" onClick={() => this.props.history.push('/')}>BachNX</Heading>
+          <Heading size={700} color="#FFFFFF" cursor="pointer" onClick={() => this.props.history.push('/')}>ReactJS</Heading>
         </div>
         <div className="nav">
           <Auth

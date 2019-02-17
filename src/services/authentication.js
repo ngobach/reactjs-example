@@ -1,7 +1,11 @@
+import EventEmitter from 'events';
 import users from './user';
 import utils from './utils';
 
 const authService = {
+  current: null,
+  events: new EventEmitter(),
+
   async register({ username, email, password }) {
     await utils.delay(500);
     const user = {
@@ -24,6 +28,11 @@ const authService = {
       throw new Error('No matching user found');
     }
     return user;
+  },
+
+  setCurrent(user) {
+    this.current = user;
+    this.events.emit('stateChanged', user);
   }
 };
 

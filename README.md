@@ -38,7 +38,6 @@ Progress
 - [ ] User registration page
 - [ ] User login page
 - [ ] User profile page
-- [ ] User dashboard
 
 #### Todo
 

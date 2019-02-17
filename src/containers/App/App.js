@@ -5,8 +5,7 @@ import Home from '../../pages/Home';
 import Register from '../../pages/Register';
 import Login from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
-
-const UserProfile = () => <TextPage>User Profile</TextPage>;
+import Profile from '../../pages/Profile';
 
 class App extends React.Component {
   render() {
@@ -16,7 +15,7 @@ class App extends React.Component {
         <Route path="/home" exact component={Home}/>
         <Route path="/login" exact component={Login}/>
         <Route path="/register" exact component={Register}/>
-        <Route path="/profile" component={UserProfile}/>
+        <Route path="/profile" component={Profile}/>
         <Route component={NotFound}/>
       </Switch>
     );

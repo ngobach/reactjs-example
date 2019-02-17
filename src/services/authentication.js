@@ -12,9 +12,9 @@ const authService = {
       username,
       email,
       password, // bcrypt?
-      fullname: '',
-      homepage: '',
-      country: '',
+      fullname: 'John Doe',
+      homepage: 'https://ngobach.com/',
+      country: 'VN',
       notifyMe: false,
     };
     

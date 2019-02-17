@@ -1,5 +1,4 @@
 import db from './db';
-import utils from './utils';
 
 const users = {
   findByCredential(username, password ) {
@@ -20,7 +19,6 @@ const users = {
     }
     db.get('users').push(user).write();
   },
-
 };
 
 export default users;

@@ -1,0 +1,20 @@
+@import '../../global.scss';
+
+.navigator {
+  width: $panelWidth;
+  height: 32px;
+  margin-bottom: 24px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  .logo {
+    color: #FFFFFF;
+  }
+
+  .nav {
+    flex: 1;
+    text-align: right;
+  }
+}

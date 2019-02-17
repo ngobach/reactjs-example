@@ -50,7 +50,7 @@ class Profile extends React.Component {
               </Box>
 
               <Box>
-                <Button appearance="primary" marginRight={8}>Edit</Button>
+                <Button appearance="primary" marginRight={8} onClick={() => this.props.history.push('/profile/edit')}>Edit</Button>
               </Box>
             </Pane>
           </Box>

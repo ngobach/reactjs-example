@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import TextPage from '../../components/TextPage';
 import Home from '../../pages/Home';
 import Register from '../../pages/Register';
 import Login from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import Profile from '../../pages/Profile';
+import ProfileEditor from '../../pages/ProfileEditor';
 
 class App extends React.Component {
   render() {
@@ -15,7 +15,8 @@ class App extends React.Component {
         <Route path="/home" exact component={Home}/>
         <Route path="/login" exact component={Login}/>
         <Route path="/register" exact component={Register}/>
-        <Route path="/profile" component={Profile}/>
+        <Route path="/profile" exact component={Profile}/>
+        <Route path="/profile/edit" exact component={ProfileEditor}/>
         <Route component={NotFound}/>
       </Switch>
     );

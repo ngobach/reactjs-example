@@ -26,7 +26,6 @@ class Login extends React.PureComponent {
   }
 
   async onSubmit(values, formik) {
-    console.log(values);
     try {
       this.setState({ error: false, success: false });
       const user = await authService.login(values.username, values.password);

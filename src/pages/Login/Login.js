@@ -1,13 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Heading, Card, TextInputField, Text, Button, Alert } from 'evergreen-ui';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Box from 'ui-box';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Beauty from '../../containers/Beauty';
 import './Login.scss';
 import authService from '../../services/authentication';
+import Auth from '../../containers/Auth';
 
 const validateUsername = function validateEmail(value) {
   return yup.string().min(6).isValidSync(value) ? '' : 'Username must be at least 6 characters';
@@ -28,9 +29,12 @@ class Login extends React.PureComponent {
     console.log(values);
     try {
       this.setState({ error: false, success: false });
-      await authService.login(values.username, values.password);
+      const user = await authService.login(values.username, values.password);
       this.setState({ success: 'Logged in successfully' });
-      setTimeout(() => this.props.history.push('/home'), 1000);
+      setTimeout(() => {
+        authService.setCurrent(user);
+        this.props.history.push('/home');
+      }, 1000);
     } catch (error) {
       console.error(error);
       this.setState({ error: error.message });
@@ -41,6 +45,7 @@ class Login extends React.PureComponent {
   render() {
     return (
       <Beauty>
+        <Auth auth={() => <Redirect to="/"/>}/>
         <Helmet>
           <title>Login</title>
         </Helmet>

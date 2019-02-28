@@ -13,5 +13,10 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'npm i -g surge'
+            }
+        }
     }
 }

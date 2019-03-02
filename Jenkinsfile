@@ -15,7 +15,13 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'npm i -g surge'
+                withCredentials([file(credentialsId: 'netrc', variable: 'netrc')]) {
+                    sh '''
+                    npm i -g surge
+                    cp \$netrc ~/.netrc
+                    surge dist reactjs-bachnx.surge.sh
+                    '''
+                }
             }
         }
     }
